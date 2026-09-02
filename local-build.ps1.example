@@ -1,0 +1,7 @@
+# Copy to local-build.ps1 (gitignored) and set your paths:
+#   Copy-Item local-build.ps1.example local-build.ps1
+
+# Find your JDK: where java
+# Example (version may differ): C:\Program Files\Microsoft\jdk-21.0.11.10-hotspot
+$env:JAVA_HOME = 'C:\Program Files\Microsoft\jdk-21.0.11.10-hotspot'
+$env:ANDROID_HOME = "$env:LOCALAPPDATA\Android\Sdk"

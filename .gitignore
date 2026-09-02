@@ -1,0 +1,12 @@
+node_modules/
+build/
+android/.gradle/
+android/.kotlin/
+android/app/build/
+android/local.properties
+ios/Pods/
+*.snplg
+config.local.js
+local-build.ps1
+logs/
+.DS_Store
