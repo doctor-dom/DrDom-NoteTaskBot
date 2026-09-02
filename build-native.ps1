@@ -65,6 +65,12 @@ $localProps = Join-Path $root 'android\local.properties'
 "sdk.dir=$sdkDir" | Set-Content -Path $localProps -Encoding ASCII
 Write-Host "Wrote $localProps" -ForegroundColor Green
 
+$pkg = Get-Content (Join-Path $root 'package.json') -Raw | ConvertFrom-Json
+$projectName = $pkg.name
+if ([string]::IsNullOrWhiteSpace($projectName)) {
+    Write-Error 'package.json name is required (used for .snplg filename)'
+}
+
 Push-Location $root
 try {
     npm install
@@ -81,7 +87,7 @@ try {
     Pop-Location
 }
 
-$out = Join-Path $root 'build\outputs\NoteTaskBot.snplg'
+$out = Join-Path $root "build\outputs\$projectName.snplg"
 $outExists = Test-Path $out
 
 if (-not $outExists) {

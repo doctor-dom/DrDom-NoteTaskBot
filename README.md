@@ -2,7 +2,7 @@
 
 Capture handwritten items from Supernote notes and send them to Todoist as subtasks under a parent named for the note’s file and folder path.
 
-This is a standalone Supernote plugin repo. The plugin package identity is **NoteTaskBot** (Android package, `.snplg` name). Offline Supernote SDK docs and extracted TypeScript live under [`sdk-reference/`](sdk-reference/) — reference only, not a runtime dependency.
+This plugin lives under `plugins/tasks/` in the **DrDom-Supernote-Plugins** home base. Package identity is **NoteTaskBot** (Android package, `.snplg` name, `pluginID` `notetaskbot001`). Offline Supernote SDK docs live under [`../../docs/sdk-reference/`](../../docs/sdk-reference/) — reference only, not a runtime dependency.
 
 ## Origins
 
@@ -59,20 +59,28 @@ Get your token at [Todoist Developer Settings](https://todoist.com/app/settings/
 
 ## Build (requires native module)
 
-NoteTaskBot uses `react-native-fs` for config storage. Use the **native** build on Windows:
+NoteTaskBot uses `react-native-fs` for config storage. Prefer packaging from the **home-base root**:
+
+```powershell
+# from repo root
+npm run snplg -- NoteTaskBot
+# or: npm run snplg -- tasks
+```
+
+From this plugin folder (Windows native build):
 
 ```powershell
 npm install
 powershell -ExecutionPolicy Bypass -File .\build-native.ps1
 ```
 
-The output `.snplg` should be ~7 MB (includes `app.npk`). A ~260 KB build is JS-only and **cannot read your config file**.
+The output `.snplg` should be ~7 MB (includes `app.npk`). A ~260 KB build is JS-only and **cannot read your config file**. Home-base packaging also copies to `dist/tasks/NoteTaskBot.snplg`.
 
-Copy `build/outputs/NoteTaskBot.snplg` to `MyStyle/` on the device, then install via Settings > Apps > Plugins.
+Copy the `.snplg` to `MyStyle/` on the device, then install via Settings > Apps > Plugins.
 
 On first capture after this build, the device will prompt for **file read**, **file write** (MyStyle config), and **internet**. Choose **Always allow** if you want capture to work after closing the plugin. "Allow this time only" expires when the plugin UI closes.
 
-Parent page numbers follow the host SDK (1-based). Official plugin docs for this firmware live in [`Plugin-Assets/`](Plugin-Assets/) (see [`SDK-Release-Notes.md`](Plugin-Assets/SDK-Release-Notes.md)).
+Parent page numbers follow the host SDK (1-based). Official plugin docs for this firmware live in [`../../docs/plugin-assets/`](../../docs/plugin-assets/) (see [`SDK-Release-Notes.md`](../../docs/plugin-assets/SDK-Release-Notes.md)).
 
 ## Troubleshooting
 
@@ -99,8 +107,8 @@ Add `debugServerUrl` in a local `config.local.js` (gitignored) for log streaming
 
 | Path | Purpose |
 |------|---------|
-| [`sdk-reference/CLAUDE.md`](sdk-reference/CLAUDE.md) | Development practices, SDK patterns, Todoist notes |
-| [`sdk-reference/SDK-REFERENCE.md`](sdk-reference/SDK-REFERENCE.md) | API reference notes |
-| [`sdk-reference/official-docs-extracted.md`](sdk-reference/official-docs-extracted.md) | Ratta official docs dump |
-| [`sdk-reference/src/`](sdk-reference/src/) | Extracted `sn-plugin-lib` TypeScript source |
-| [`Plugin-Assets/`](Plugin-Assets/) | Official Ratta plugin docs dump + SDK release notes |
+| [`../../docs/sdk-reference/CLAUDE.md`](../../docs/sdk-reference/CLAUDE.md) | Development practices, SDK patterns, Todoist notes |
+| [`../../docs/sdk-reference/SDK-REFERENCE.md`](../../docs/sdk-reference/SDK-REFERENCE.md) | API reference notes |
+| [`../../docs/sdk-reference/official-docs-extracted.md`](../../docs/sdk-reference/official-docs-extracted.md) | Ratta official docs dump |
+| [`../../docs/sdk-reference/src/`](../../docs/sdk-reference/src/) | Extracted `sn-plugin-lib` TypeScript source |
+| [`../../docs/plugin-assets/`](../../docs/plugin-assets/) | Official Ratta plugin docs dump + SDK release notes |

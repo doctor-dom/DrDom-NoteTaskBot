@@ -1,0 +1,8 @@
+id: tasks
+displayName: NoteTaskBot
+slug: tasks
+apps: [NOTE]
+pluginID: notetaskbot001
+pluginKey: NoteTaskBot
+snplg: NoteTaskBot.snplg
+native: true
