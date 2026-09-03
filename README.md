@@ -2,11 +2,11 @@
 
 Capture handwritten items from Supernote notes and send them to Todoist as subtasks under a parent named for the note’s file and folder path.
 
-This plugin lives under `plugins/tasks/` in the **DrDom-Supernote-Plugins** home base. Package identity is **NoteTaskBot** (Android package, `.snplg` name, `pluginID` `notetaskbot001`). Offline Supernote SDK docs live under [`../../docs/sdk-reference/`](../../docs/sdk-reference/) — reference only, not a runtime dependency.
+This plugin is **[DrDom-NoteTaskBot](https://github.com/doctor-dom/DrDom-NoteTaskBot)**. In the home-base workspace it lives at `plugins/tasks/`. Package identity is **NoteTaskBot** (Android package, `.snplg` name, `pluginID` `notetaskbot001`). Offline Supernote SDK docs live under [`../../docs/sdk-reference/`](../../docs/sdk-reference/) in the home-base checkout — reference only, not a runtime dependency.
 
 ## Origins
 
-This standalone repo was developed from scratch, using scaffolding and extracted SDK/plugin tools from [apclark31](https://github.com/apclark31).
+Developed from scratch using scaffolding and extracted SDK/plugin tools from [apclark31](https://github.com/apclark31). Extracted from home-base into its own repo in September 2026.
 
 ## Flow
 

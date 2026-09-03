@@ -1,6 +1,6 @@
 # NoteTaskBot
 
-Lasso-to-Todoist capture plugin (`plugins/tasks` in DrDom-Supernote-Plugins).
+Lasso-to-Todoist capture plugin. Standalone repo: [DrDom-NoteTaskBot](https://github.com/doctor-dom/DrDom-NoteTaskBot). In the home-base workspace: `plugins/tasks/`.
 
 ## Status
 
@@ -34,12 +34,12 @@ Lasso-to-Todoist capture plugin (`plugins/tasks` in DrDom-Supernote-Plugins).
 ## Build
 
 ```powershell
-# from home-base root
+# from home-base root (preferred)
 npm run snplg -- NoteTaskBot
 # Output: dist/tasks/NoteTaskBot.snplg
 ```
 
-Or from `plugins/tasks`:
+Or from this repo:
 
 ```powershell
 npm install
